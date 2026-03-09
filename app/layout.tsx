@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'SoleScript | Încălțăminte Personalizată pentru Confort',
-  description: 'Creăm încălțăminte personalizată pentru persoane cu dizabilități, anomalii și traume la picior. Introduceți măsurătorile și vizualizați designul perfect.',
+  title: 'SoleScript | Custom Footwear for Comfort',
+  description: 'We create custom footwear for people with disabilities, anomalies, and foot trauma. Enter your measurements and visualize the perfect design.',
   generator: 'SoleScript',
   icons: {
     icon: [
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ro" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

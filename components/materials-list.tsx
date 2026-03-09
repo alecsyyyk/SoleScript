@@ -27,59 +27,59 @@ export function MaterialsList({ measurements }: MaterialsListProps) {
   // Calculate material pieces based on measurements
   const materials: MaterialPiece[] = [
     {
-      name: "Talpă Exterioară",
+      name: "Outer Sole",
       quantity: 2,
-      dimensions: `${footLength + 20}mm × ${footWidth + 15}mm`,
-      material: condition === "diabetes" ? "Cauciuc Anti-Alunecare" : "Cauciuc Durabil",
+      dimensions: `${footLength + 20}mm x ${footWidth + 15}mm`,
+      material: condition === "diabetes" ? "Non-Slip Rubber" : "Durable Rubber",
       icon: <Layers className="h-5 w-5" />
     },
     {
-      name: "Talpă Interioară",
+      name: "Inner Sole",
       quantity: 2,
-      dimensions: `${footLength + 10}mm × ${footWidth + 10}mm`,
-      material: "Spumă Memory Ortopedică",
+      dimensions: `${footLength + 10}mm x ${footWidth + 10}mm`,
+      material: "Orthopedic Memory Foam",
       icon: <Layers className="h-5 w-5" />
     },
     {
-      name: "Căptușeală Superioară",
+      name: "Upper Lining",
       quantity: 2,
-      dimensions: `${footLength + 30}mm × ${Math.round(footWidth * 2.5)}mm`,
-      material: condition === "diabetes" ? "Piele Fără Cusături" : "Piele Premium",
+      dimensions: `${footLength + 30}mm x ${Math.round(footWidth * 2.5)}mm`,
+      material: condition === "diabetes" ? "Seamless Leather" : "Premium Leather",
       icon: <Scissors className="h-5 w-5" />
     },
     {
-      name: "Întăritură Călcâi",
+      name: "Heel Counter",
       quantity: 2,
-      dimensions: `80mm × 60mm`,
-      material: "Termoplastic Rigid",
+      dimensions: `80mm x 60mm`,
+      material: "Rigid Thermoplastic",
       icon: <Ruler className="h-5 w-5" />
     },
     {
-      name: "Suport Boltă",
+      name: "Arch Support",
       quantity: 2,
-      dimensions: measurements.footType === "flat" ? "120mm × 45mm" : "100mm × 35mm",
-      material: measurements.footType === "flat" ? "EVA Înaltă Densitate" : "EVA Medie",
+      dimensions: measurements.footType === "flat" ? "120mm x 45mm" : "100mm x 35mm",
+      material: measurements.footType === "flat" ? "High Density EVA" : "Medium EVA",
       icon: <Package className="h-5 w-5" />
     },
     {
-      name: "Căptușeală Interioară",
+      name: "Inner Lining",
       quantity: 2,
-      dimensions: `${footLength + 15}mm × ${Math.round(footWidth * 2)}mm`,
-      material: "Textil Respirabil Anti-Bacterian",
+      dimensions: `${footLength + 15}mm x ${Math.round(footWidth * 2)}mm`,
+      material: "Anti-Bacterial Breathable Textile",
       icon: <Scissors className="h-5 w-5" />
     },
     {
-      name: "Sistem Închidere",
+      name: "Closure System",
       quantity: 1,
-      dimensions: "Set complet",
-      material: condition === "arthritis" ? "Velcro Ajustabil" : "Șireturi Elastice",
+      dimensions: "Complete set",
+      material: condition === "arthritis" ? "Adjustable Velcro" : "Elastic Laces",
       icon: <Package className="h-5 w-5" />
     },
     {
-      name: "Inserție Personalizată",
+      name: "Custom Insert",
       quantity: 2,
-      dimensions: `${footLength}mm × ${footWidth}mm × ${measurements.archHeight || 35}mm`,
-      material: "3D Print Personalizat",
+      dimensions: `${footLength}mm x ${footWidth}mm x ${measurements.archHeight || 35}mm`,
+      material: "Custom 3D Print",
       icon: <Layers className="h-5 w-5" />
     }
   ]
@@ -87,20 +87,20 @@ export function MaterialsList({ measurements }: MaterialsListProps) {
   // Add special materials based on condition
   if (condition === "bunion") {
     materials.push({
-      name: "Extensie Hallux",
+      name: "Hallux Extension",
       quantity: 2,
-      dimensions: "40mm × 30mm",
-      material: "Gel Protector Moale",
+      dimensions: "40mm x 30mm",
+      material: "Soft Protective Gel",
       icon: <Package className="h-5 w-5" />
     })
   }
 
   if (condition === "plantar") {
     materials.push({
-      name: "Pad Plantar Extra",
+      name: "Extra Plantar Pad",
       quantity: 2,
-      dimensions: "60mm × 40mm",
-      material: "Gel Absorbant Șoc",
+      dimensions: "60mm x 40mm",
+      material: "Shock Absorbing Gel",
       icon: <Layers className="h-5 w-5" />
     })
   }
@@ -109,10 +109,10 @@ export function MaterialsList({ measurements }: MaterialsListProps) {
     <div className="border-2 border-secondary bg-card">
       <div className="border-b-2 border-secondary p-4">
         <h3 className="text-lg font-serif font-bold text-secondary uppercase tracking-wide">
-          Materiale Necesare
+          Required Materials
         </h3>
         <p className="text-sm text-muted-foreground mt-1">
-          Lista completă de componente pentru fabricarea încălțămintei personalizate
+          Complete list of components for manufacturing your custom footwear
         </p>
       </div>
       
@@ -129,7 +129,7 @@ export function MaterialsList({ measurements }: MaterialsListProps) {
               <div className="flex items-center justify-between gap-2">
                 <h4 className="font-medium text-secondary">{piece.name}</h4>
                 <span className="text-sm bg-secondary text-secondary-foreground px-2 py-0.5">
-                  ×{piece.quantity}
+                  x{piece.quantity}
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">
@@ -146,10 +146,10 @@ export function MaterialsList({ measurements }: MaterialsListProps) {
       <div className="border-t-2 border-secondary p-4 bg-muted/30">
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium text-secondary uppercase">
-            Total Componente
+            Total Components
           </span>
           <span className="text-2xl font-serif font-bold text-primary">
-            {materials.reduce((acc, m) => acc + m.quantity, 0)} piese
+            {materials.reduce((acc, m) => acc + m.quantity, 0)} pieces
           </span>
         </div>
       </div>

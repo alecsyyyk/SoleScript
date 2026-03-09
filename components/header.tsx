@@ -15,13 +15,13 @@ export function Header() {
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           <Link href="/" className="text-secondary hover:text-primary transition-colors font-medium">
-            Acasă
+            Home
           </Link>
           <Link href="#configurator" className="text-secondary hover:text-primary transition-colors font-medium">
             Configurator
           </Link>
-          <Link href="#despre" className="text-secondary hover:text-primary transition-colors font-medium">
-            Despre Noi
+          <Link href="#about" className="text-secondary hover:text-primary transition-colors font-medium">
+            About Us
           </Link>
           <Link href="#contact" className="text-secondary hover:text-primary transition-colors font-medium">
             Contact
@@ -31,7 +31,7 @@ export function Header() {
           href="#configurator" 
           className="bg-primary text-primary-foreground px-6 py-2 font-medium hover:bg-primary/90 transition-colors border-2 border-secondary"
         >
-          Începe Acum
+          Get Started
         </Link>
       </div>
     </header>

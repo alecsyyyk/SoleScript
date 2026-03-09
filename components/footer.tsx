@@ -16,19 +16,19 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-secondary-foreground/80 text-sm">
-              Încălțăminte personalizată pentru confort și mobilitate. 
-              Fiecare pas contează.
+              Custom footwear for comfort and mobility. 
+              Every step matters.
             </p>
           </div>
           
           <div>
             <h4 className="font-serif font-bold text-lg mb-4 uppercase tracking-wide">
-              Navigare
+              Navigation
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Acasă
+                  Home
                 </Link>
               </li>
               <li>
@@ -37,8 +37,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#despre" className="text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Despre Noi
+                <Link href="#about" className="text-secondary-foreground/80 hover:text-primary transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
@@ -51,14 +51,14 @@ export function Footer() {
           
           <div>
             <h4 className="font-serif font-bold text-lg mb-4 uppercase tracking-wide">
-              Condiții
+              Conditions
             </h4>
             <ul className="space-y-2 text-secondary-foreground/80 text-sm">
-              <li>Hallux Valgus</li>
-              <li>Picior Diabetic</li>
-              <li>Fasciită Plantară</li>
-              <li>Post-Amputație</li>
-              <li>Artrită</li>
+              <li>Bunion (Hallux Valgus)</li>
+              <li>Diabetic Foot</li>
+              <li>Plantar Fasciitis</li>
+              <li>Post-Amputation</li>
+              <li>Arthritis</li>
             </ul>
           </div>
           
@@ -69,15 +69,15 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>contact@solescript.ro</span>
+                <span>contact@solescript.com</span>
               </li>
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+40 123 456 789</span>
+                <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>București, România</span>
+                <span>New York, USA</span>
               </li>
             </ul>
           </div>
@@ -87,14 +87,14 @@ export function Footer() {
       <div className="border-t-2 border-secondary-foreground/20 py-6">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-secondary-foreground/60">
-            © 2026 SoleScript. Toate drepturile rezervate.
+            © 2026 SoleScript. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
-              Politica de Confidențialitate
+              Privacy Policy
             </Link>
             <Link href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
-              Termeni și Condiții
+              Terms & Conditions
             </Link>
           </div>
         </div>

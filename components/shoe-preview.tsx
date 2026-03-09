@@ -38,10 +38,10 @@ export function ShoePreview({ measurements }: ShoePreviewProps) {
             </svg>
           </div>
           <h3 className="text-xl font-serif font-bold text-secondary mb-2">
-            Previzualizare Încălțăminte
+            Footwear Preview
           </h3>
           <p className="text-muted-foreground max-w-xs">
-            Completați formularul de măsurători pentru a vedea designul personalizat al încălțămintei
+            Complete the measurement form to see your personalized footwear design
           </p>
         </div>
       </div>
@@ -58,34 +58,34 @@ export function ShoePreview({ measurements }: ShoePreviewProps) {
     <div className="border-2 border-secondary bg-card h-full min-h-[500px] flex flex-col">
       <div className="border-b-2 border-secondary p-4 flex items-center justify-between">
         <h3 className="text-lg font-serif font-bold text-secondary uppercase tracking-wide">
-          Previzualizare 3D
+          3D Preview
         </h3>
         <div className="flex items-center gap-2">
           <button 
             onClick={() => setRotation(r => r - 45)}
             className="p-2 border-2 border-secondary hover:bg-muted transition-colors"
-            aria-label="Rotește stânga"
+            aria-label="Rotate left"
           >
             <RotateCw className="h-4 w-4 text-secondary transform -scale-x-100" />
           </button>
           <button 
             onClick={() => setRotation(r => r + 45)}
             className="p-2 border-2 border-secondary hover:bg-muted transition-colors"
-            aria-label="Rotește dreapta"
+            aria-label="Rotate right"
           >
             <RotateCw className="h-4 w-4 text-secondary" />
           </button>
           <button 
             onClick={() => setZoom(z => Math.max(0.5, z - 0.1))}
             className="p-2 border-2 border-secondary hover:bg-muted transition-colors"
-            aria-label="Micșorează"
+            aria-label="Zoom out"
           >
             <ZoomOut className="h-4 w-4 text-secondary" />
           </button>
           <button 
             onClick={() => setZoom(z => Math.min(1.5, z + 0.1))}
             className="p-2 border-2 border-secondary hover:bg-muted transition-colors"
-            aria-label="Mărește"
+            aria-label="Zoom in"
           >
             <ZoomIn className="h-4 w-4 text-secondary" />
           </button>
@@ -155,7 +155,7 @@ export function ShoePreview({ measurements }: ShoePreviewProps) {
             
             {/* Width indicator */}
             <text x="150" y="195" textAnchor="middle" fontSize="10" fill="var(--secondary)" fontFamily="var(--font-sans)">
-              {shoeWidth}mm lățime
+              {shoeWidth}mm width
             </text>
           </svg>
         </div>
@@ -164,15 +164,15 @@ export function ShoePreview({ measurements }: ShoePreviewProps) {
       <div className="border-t-2 border-secondary p-4 bg-card">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
-            <p className="text-xs uppercase text-muted-foreground tracking-wide">Lungime</p>
+            <p className="text-xs uppercase text-muted-foreground tracking-wide">Length</p>
             <p className="text-lg font-serif font-bold text-secondary">{shoeLength} mm</p>
           </div>
           <div>
-            <p className="text-xs uppercase text-muted-foreground tracking-wide">Lățime</p>
+            <p className="text-xs uppercase text-muted-foreground tracking-wide">Width</p>
             <p className="text-lg font-serif font-bold text-secondary">{shoeWidth} mm</p>
           </div>
           <div>
-            <p className="text-xs uppercase text-muted-foreground tracking-wide">Suport Boltă</p>
+            <p className="text-xs uppercase text-muted-foreground tracking-wide">Arch Support</p>
             <p className="text-lg font-serif font-bold text-primary capitalize">{archSupport}</p>
           </div>
         </div>

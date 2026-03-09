@@ -59,16 +59,16 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="border-2 border-secondary bg-card p-6">
         <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
-          Pasul 1: Măsurători de Bază
+          Step 1: Basic Measurements
         </h3>
         <p className="text-muted-foreground mb-6">
-          Introduceți măsurătorile piciorului în milimetri pentru cel mai precis rezultat.
+          Enter your foot measurements in millimeters for the most accurate results.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="footLength" className="text-secondary font-medium uppercase text-sm">
-              Lungime Picior (mm)
+              Foot Length (mm)
             </Label>
             <Input
               id="footLength"
@@ -83,7 +83,7 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
           
           <div className="space-y-2">
             <Label htmlFor="footWidth" className="text-secondary font-medium uppercase text-sm">
-              Lățime Picior (mm)
+              Foot Width (mm)
             </Label>
             <Input
               id="footWidth"
@@ -98,7 +98,7 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
           
           <div className="space-y-2">
             <Label htmlFor="archHeight" className="text-secondary font-medium uppercase text-sm">
-              Înălțime Boltă (mm)
+              Arch Height (mm)
             </Label>
             <Input
               id="archHeight"
@@ -113,7 +113,7 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
           
           <div className="space-y-2">
             <Label htmlFor="heelWidth" className="text-secondary font-medium uppercase text-sm">
-              Lățime Călcâi (mm)
+              Heel Width (mm)
             </Label>
             <Input
               id="heelWidth"
@@ -130,13 +130,13 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
 
       <div className="border-2 border-secondary bg-card p-6">
         <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
-          Pasul 2: Măsurători Avansate
+          Step 2: Advanced Measurements
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
             <Label htmlFor="instepHeight" className="text-secondary font-medium uppercase text-sm">
-              Înălțime Rist (mm)
+              Instep Height (mm)
             </Label>
             <Input
               id="instepHeight"
@@ -150,7 +150,7 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
           
           <div className="space-y-2">
             <Label htmlFor="toeBoxWidth" className="text-secondary font-medium uppercase text-sm">
-              Lățime Degete (mm)
+              Toe Box Width (mm)
             </Label>
             <Input
               id="toeBoxWidth"
@@ -164,7 +164,7 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
           
           <div className="space-y-2">
             <Label htmlFor="ankleCircumference" className="text-secondary font-medium uppercase text-sm">
-              Circumferință Gleznă (mm)
+              Ankle Circumference (mm)
             </Label>
             <Input
               id="ankleCircumference"
@@ -180,44 +180,44 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
 
       <div className="border-2 border-secondary bg-card p-6">
         <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
-          Pasul 3: Informații Condiție
+          Step 3: Condition Information
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="space-y-2">
             <Label htmlFor="footType" className="text-secondary font-medium uppercase text-sm">
-              Tip Picior
+              Foot Type
             </Label>
             <Select onValueChange={(value) => handleChange("footType", value)}>
               <SelectTrigger className="border-2 border-secondary bg-background">
-                <SelectValue placeholder="Selectați tipul" />
+                <SelectValue placeholder="Select type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="flat">Picior Plat</SelectItem>
-                <SelectItem value="normal">Boltă Normală</SelectItem>
-                <SelectItem value="high">Boltă Înaltă</SelectItem>
-                <SelectItem value="cavus">Picior Cavus</SelectItem>
+                <SelectItem value="flat">Flat Foot</SelectItem>
+                <SelectItem value="normal">Normal Arch</SelectItem>
+                <SelectItem value="high">High Arch</SelectItem>
+                <SelectItem value="cavus">Cavus Foot</SelectItem>
               </SelectContent>
             </Select>
           </div>
           
           <div className="space-y-2">
             <Label htmlFor="condition" className="text-secondary font-medium uppercase text-sm">
-              Condiție Medicală
+              Medical Condition
             </Label>
             <Select onValueChange={(value) => handleChange("condition", value)}>
               <SelectTrigger className="border-2 border-secondary bg-background">
-                <SelectValue placeholder="Selectați condiția" />
+                <SelectValue placeholder="Select condition" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="bunion">Hallux Valgus</SelectItem>
-                <SelectItem value="hammertoe">Degete în Ciocan</SelectItem>
-                <SelectItem value="plantar">Fasciită Plantară</SelectItem>
-                <SelectItem value="diabetes">Picior Diabetic</SelectItem>
-                <SelectItem value="arthritis">Artrită</SelectItem>
-                <SelectItem value="amputation">Post-Amputație</SelectItem>
-                <SelectItem value="clubfoot">Picior Strâmb</SelectItem>
-                <SelectItem value="other">Altă Condiție</SelectItem>
+                <SelectItem value="bunion">Bunion (Hallux Valgus)</SelectItem>
+                <SelectItem value="hammertoe">Hammertoe</SelectItem>
+                <SelectItem value="plantar">Plantar Fasciitis</SelectItem>
+                <SelectItem value="diabetes">Diabetic Foot</SelectItem>
+                <SelectItem value="arthritis">Arthritis</SelectItem>
+                <SelectItem value="amputation">Post-Amputation</SelectItem>
+                <SelectItem value="clubfoot">Clubfoot</SelectItem>
+                <SelectItem value="other">Other Condition</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -225,11 +225,11 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
         
         <div className="space-y-2">
           <Label htmlFor="notes" className="text-secondary font-medium uppercase text-sm">
-            Note Adiționale
+            Additional Notes
           </Label>
           <Textarea
             id="notes"
-            placeholder="Descrieți orice particularități sau cerințe speciale..."
+            placeholder="Describe any particularities or special requirements..."
             value={measurements.notes}
             onChange={(e) => handleChange("notes", e.target.value)}
             className="border-2 border-secondary bg-background min-h-[100px]"
@@ -245,11 +245,11 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
         {isCalculating ? (
           <>
             <Calculator className="mr-2 h-5 w-5 animate-spin" />
-            Se calculează...
+            Calculating...
           </>
         ) : (
           <>
-            Calculează Design
+            Calculate Design
             <ArrowRight className="ml-2 h-5 w-5" />
           </>
         )}
