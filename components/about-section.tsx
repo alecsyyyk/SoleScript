@@ -5,23 +5,23 @@ import { Heart, Shield, Sparkles, Users } from "lucide-react"
 const features = [
   {
     icon: Heart,
-    title: "Care For Everyone",
-    description: "Each pair is created with attention to individual needs, providing maximum comfort for any condition."
+    title: "Declarative Workflow",
+    description: "SoleScript models the full pipeline: Foot, Observations, Last, Boot, and Export in explicit order."
   },
   {
     icon: Shield,
-    title: "Premium Materials",
-    description: "We use only the highest quality materials, tested for durability and long-term comfort."
+    title: "Semantic Rules SR1-SR9",
+    description: "The analyzer validates references, required parameters, and domain constraints before export."
   },
   {
     icon: Sparkles,
-    title: "Advanced Technology",
-    description: "3D scanning and precision manufacturing for a perfect fit, adapted to each foot's unique anatomy."
+    title: "Formal Grammar",
+    description: "ANTLR grammar and recursive-descent implementation keep syntax predictable and machine-readable."
   },
   {
     icon: Users,
-    title: "Medical Expertise",
-    description: "We collaborate with orthopedists and podiatrists to ensure each design meets medical standards."
+    title: "Python Integration",
+    description: "Use the standalone parser API to parse, inspect AST nodes, and automate validation in tooling."
   }
 ]
 
@@ -31,11 +31,11 @@ export function AboutSection() {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Why SoleScript?
+            Why This DSL?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            We are dedicated to creating footwear that changes lives. 
-            Every step should be comfortable, regardless of the challenges you face.
+            SoleScript is designed for orthopedic footwear specification, not generic programming.
+            It captures domain intent directly and keeps clinical-to-design communication precise.
           </p>
         </div>
         
@@ -61,16 +61,16 @@ export function AboutSection() {
         <div className="mt-16 border-2 border-secondary bg-secondary text-secondary-foreground p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <p className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2">500+</p>
-              <p className="text-sm uppercase tracking-widest opacity-80">Happy Customers</p>
+              <p className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2">16</p>
+              <p className="text-sm uppercase tracking-widest opacity-80">Grammar Rules</p>
             </div>
             <div>
-              <p className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2">15+</p>
-              <p className="text-sm uppercase tracking-widest opacity-80">Conditions Covered</p>
+              <p className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2">9</p>
+              <p className="text-sm uppercase tracking-widest opacity-80">Semantic Rules</p>
             </div>
             <div>
               <p className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2">100%</p>
-              <p className="text-sm uppercase tracking-widest opacity-80">Satisfaction Guaranteed</p>
+              <p className="text-sm uppercase tracking-widest opacity-80">Declarative Syntax</p>
             </div>
           </div>
         </div>

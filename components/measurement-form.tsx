@@ -12,20 +12,8 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { Calculator, ArrowRight } from "lucide-react"
-
-export interface FootMeasurements {
-  footLength: string
-  footWidth: string
-  archHeight: string
-  heelWidth: string
-  instepHeight: string
-  toeBoxWidth: string
-  ankleCircumference: string
-  footType: string
-  condition: string
-  notes: string
-}
+import { Braces, ArrowRight } from "lucide-react"
+import type { FootMeasurements } from "@/lib/solescript"
 
 interface MeasurementFormProps {
   onSubmit: (measurements: FootMeasurements) => void
@@ -34,15 +22,21 @@ interface MeasurementFormProps {
 
 export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProps) {
   const [measurements, setMeasurements] = useState<FootMeasurements>({
+    bootName: "orthopedic_boot",
+    footName: "patient_foot",
+    observationsName: "clinical_obs",
+    lastName: "standard_last",
     footLength: "",
+    ballGirth: "",
     footWidth: "",
-    archHeight: "",
     heelWidth: "",
-    instepHeight: "",
-    toeBoxWidth: "",
-    ankleCircumference: "",
-    footType: "",
+    archHeight: "",
     condition: "",
+    pressurePoints: "heel, metatarsal, toe_tip",
+    heelHeight: "",
+    toeSpring: "",
+    widthFitting: "",
+    quarterVariant: "1",
     notes: ""
   })
 
@@ -59,120 +53,141 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="border-2 border-secondary bg-card p-6">
         <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
-          Step 1: Basic Measurements
+          Step 1: Block Ids + Foot Block
         </h3>
         <p className="text-muted-foreground mb-6">
-          Enter your foot measurements in millimeters for the most accurate results.
+          Define declaration names and required Foot attributes used by the grammar.
         </p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
+            <Label htmlFor="bootName" className="text-secondary font-medium uppercase text-sm">
+              Boot id
+            </Label>
+            <Input
+              id="bootName"
+              placeholder="orthopedic_boot"
+              value={measurements.bootName}
+              onChange={(e) => handleChange("bootName", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="footName" className="text-secondary font-medium uppercase text-sm">
+              Foot id
+            </Label>
+            <Input
+              id="footName"
+              placeholder="patient_foot"
+              value={measurements.footName}
+              onChange={(e) => handleChange("footName", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="observationsName" className="text-secondary font-medium uppercase text-sm">
+              Observations id
+            </Label>
+            <Input
+              id="observationsName"
+              placeholder="clinical_obs"
+              value={measurements.observationsName}
+              onChange={(e) => handleChange("observationsName", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="lastName" className="text-secondary font-medium uppercase text-sm">
+              Last id
+            </Label>
+            <Input
+              id="lastName"
+              placeholder="standard_last"
+              value={measurements.lastName}
+              onChange={(e) => handleChange("lastName", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="footLength" className="text-secondary font-medium uppercase text-sm">
-              Foot Length (mm)
+              Length (mm)
             </Label>
             <Input
               id="footLength"
               type="number"
-              placeholder="260"
+              placeholder="265"
               value={measurements.footLength}
               onChange={(e) => handleChange("footLength", e.target.value)}
               className="border-2 border-secondary bg-background"
               required
             />
           </div>
-          
+
+          <div className="space-y-2">
+            <Label htmlFor="ballGirth" className="text-secondary font-medium uppercase text-sm">
+              Ball girth (mm)
+            </Label>
+            <Input
+              id="ballGirth"
+              type="number"
+              placeholder="245"
+              value={measurements.ballGirth}
+              onChange={(e) => handleChange("ballGirth", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="footWidth" className="text-secondary font-medium uppercase text-sm">
-              Foot Width (mm)
+              Width (mm)
             </Label>
             <Input
               id="footWidth"
               type="number"
-              placeholder="100"
+              placeholder="98"
               value={measurements.footWidth}
               onChange={(e) => handleChange("footWidth", e.target.value)}
               className="border-2 border-secondary bg-background"
               required
             />
           </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="archHeight" className="text-secondary font-medium uppercase text-sm">
-              Arch Height (mm)
-            </Label>
-            <Input
-              id="archHeight"
-              type="number"
-              placeholder="35"
-              value={measurements.archHeight}
-              onChange={(e) => handleChange("archHeight", e.target.value)}
-              className="border-2 border-secondary bg-background"
-              required
-            />
-          </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="heelWidth" className="text-secondary font-medium uppercase text-sm">
-              Heel Width (mm)
+              Heel width (mm)
             </Label>
             <Input
               id="heelWidth"
               type="number"
-              placeholder="65"
+              placeholder="62"
               value={measurements.heelWidth}
               onChange={(e) => handleChange("heelWidth", e.target.value)}
               className="border-2 border-secondary bg-background"
               required
             />
           </div>
-        </div>
-      </div>
 
-      <div className="border-2 border-secondary bg-card p-6">
-        <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
-          Step 2: Advanced Measurements
-        </h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="instepHeight" className="text-secondary font-medium uppercase text-sm">
-              Instep Height (mm)
+            <Label htmlFor="archHeight" className="text-secondary font-medium uppercase text-sm">
+              Arch height (mm)
             </Label>
             <Input
-              id="instepHeight"
+              id="archHeight"
               type="number"
-              placeholder="50"
-              value={measurements.instepHeight}
-              onChange={(e) => handleChange("instepHeight", e.target.value)}
+              placeholder="18"
+              value={measurements.archHeight}
+              onChange={(e) => handleChange("archHeight", e.target.value)}
               className="border-2 border-secondary bg-background"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="toeBoxWidth" className="text-secondary font-medium uppercase text-sm">
-              Toe Box Width (mm)
-            </Label>
-            <Input
-              id="toeBoxWidth"
-              type="number"
-              placeholder="95"
-              value={measurements.toeBoxWidth}
-              onChange={(e) => handleChange("toeBoxWidth", e.target.value)}
-              className="border-2 border-secondary bg-background"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="ankleCircumference" className="text-secondary font-medium uppercase text-sm">
-              Ankle Circumference (mm)
-            </Label>
-            <Input
-              id="ankleCircumference"
-              type="number"
-              placeholder="230"
-              value={measurements.ankleCircumference}
-              onChange={(e) => handleChange("ankleCircumference", e.target.value)}
-              className="border-2 border-secondary bg-background"
+              required
             />
           </div>
         </div>
@@ -180,56 +195,122 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
 
       <div className="border-2 border-secondary bg-card p-6">
         <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
-          Step 3: Condition Information
+          Step 2: Observations Block
         </h3>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="space-y-2">
-            <Label htmlFor="footType" className="text-secondary font-medium uppercase text-sm">
-              Foot Type
-            </Label>
-            <Select onValueChange={(value) => handleChange("footType", value)}>
-              <SelectTrigger className="border-2 border-secondary bg-background">
-                <SelectValue placeholder="Select type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="flat">Flat Foot</SelectItem>
-                <SelectItem value="normal">Normal Arch</SelectItem>
-                <SelectItem value="high">High Arch</SelectItem>
-                <SelectItem value="cavus">Cavus Foot</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          
-          <div className="space-y-2">
             <Label htmlFor="condition" className="text-secondary font-medium uppercase text-sm">
-              Medical Condition
+              Condition keyword
             </Label>
-            <Select onValueChange={(value) => handleChange("condition", value)}>
+            <Select onValueChange={(value) => handleChange("condition", value)} defaultValue={measurements.condition}>
               <SelectTrigger className="border-2 border-secondary bg-background">
                 <SelectValue placeholder="Select condition" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="bunion">Bunion (Hallux Valgus)</SelectItem>
-                <SelectItem value="hammertoe">Hammertoe</SelectItem>
-                <SelectItem value="plantar">Plantar Fasciitis</SelectItem>
-                <SelectItem value="diabetes">Diabetic Foot</SelectItem>
-                <SelectItem value="arthritis">Arthritis</SelectItem>
-                <SelectItem value="amputation">Post-Amputation</SelectItem>
-                <SelectItem value="clubfoot">Clubfoot</SelectItem>
-                <SelectItem value="other">Other Condition</SelectItem>
+                <SelectItem value="Diabetic">Diabetic</SelectItem>
+                <SelectItem value="Egyptian">Egyptian</SelectItem>
+                <SelectItem value="Greek">Greek</SelectItem>
+                <SelectItem value="Roman">Roman</SelectItem>
+                <SelectItem value="Celtic">Celtic</SelectItem>
+                <SelectItem value="Germanic">Germanic</SelectItem>
+                <SelectItem value="Square">Square</SelectItem>
+                <SelectItem value="Peasant">Peasant</SelectItem>
               </SelectContent>
             </Select>
           </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="pressurePoints" className="text-secondary font-medium uppercase text-sm">
+              Pressure points
+            </Label>
+            <Input
+              id="pressurePoints"
+              placeholder="heel, metatarsal, toe_tip"
+              value={measurements.pressurePoints}
+              onChange={(e) => handleChange("pressurePoints", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
         </div>
-        
+      </div>
+
+      <div className="border-2 border-secondary bg-card p-6">
+        <h3 className="text-lg font-serif font-bold text-secondary mb-4 uppercase tracking-wide">
+          Step 3: Last + Boot Blocks
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="heelHeight" className="text-secondary font-medium uppercase text-sm">
+              Heel height (mm)
+            </Label>
+            <Input
+              id="heelHeight"
+              type="number"
+              placeholder="22"
+              value={measurements.heelHeight}
+              onChange={(e) => handleChange("heelHeight", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="toeSpring" className="text-secondary font-medium uppercase text-sm">
+              Toe spring (mm)
+            </Label>
+            <Input
+              id="toeSpring"
+              type="number"
+              placeholder="10"
+              value={measurements.toeSpring}
+              onChange={(e) => handleChange("toeSpring", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="widthFitting" className="text-secondary font-medium uppercase text-sm">
+              Width fitting (mm)
+            </Label>
+            <Input
+              id="widthFitting"
+              type="number"
+              placeholder="98"
+              value={measurements.widthFitting}
+              onChange={(e) => handleChange("widthFitting", e.target.value)}
+              className="border-2 border-secondary bg-background"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="quarterVariant" className="text-secondary font-medium uppercase text-sm">
+              Quarter variant number
+            </Label>
+            <Input
+              id="quarterVariant"
+              type="number"
+              min="1"
+              max="9"
+              placeholder="1"
+              value={measurements.quarterVariant}
+              onChange={(e) => handleChange("quarterVariant", e.target.value)}
+              className="border-2 border-secondary bg-background"
+            />
+          </div>
+        </div>
+
         <div className="space-y-2">
           <Label htmlFor="notes" className="text-secondary font-medium uppercase text-sm">
-            Additional Notes
+            Optional DSL notes
           </Label>
           <Textarea
             id="notes"
-            placeholder="Describe any particularities or special requirements..."
+            placeholder="Comment your clinical assumptions or implementation notes..."
             value={measurements.notes}
             onChange={(e) => handleChange("notes", e.target.value)}
             className="border-2 border-secondary bg-background min-h-[100px]"
@@ -244,12 +325,12 @@ export function MeasurementForm({ onSubmit, isCalculating }: MeasurementFormProp
       >
         {isCalculating ? (
           <>
-            <Calculator className="mr-2 h-5 w-5 animate-spin" />
-            Calculating...
+            <Braces className="mr-2 h-5 w-5 animate-pulse" />
+            Building DSL program...
           </>
         ) : (
           <>
-            Calculate Design
+            Generate SoleScript Program
             <ArrowRight className="ml-2 h-5 w-5" />
           </>
         )}

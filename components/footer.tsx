@@ -16,8 +16,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-secondary-foreground/80 text-sm">
-              Custom footwear for comfort and mobility. 
-              Every step matters.
+              A focused domain-specific language for orthopedic footwear
+              specification and parser-driven validation.
             </p>
           </div>
           
@@ -33,17 +33,17 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#configurator" className="text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Configurator
+                  DSL Playground
                 </Link>
               </li>
               <li>
                 <Link href="#about" className="text-secondary-foreground/80 hover:text-primary transition-colors">
-                  About Us
+                  Language Overview
                 </Link>
               </li>
               <li>
                 <Link href="#contact" className="text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Contact
+                  Resources
                 </Link>
               </li>
             </ul>
@@ -51,33 +51,33 @@ export function Footer() {
           
           <div>
             <h4 className="font-serif font-bold text-lg mb-4 uppercase tracking-wide">
-              Conditions
+              Blocks
             </h4>
             <ul className="space-y-2 text-secondary-foreground/80 text-sm">
-              <li>Bunion (Hallux Valgus)</li>
-              <li>Diabetic Foot</li>
-              <li>Plantar Fasciitis</li>
-              <li>Post-Amputation</li>
-              <li>Arthritis</li>
+              <li>Foot</li>
+              <li>Observations</li>
+              <li>Last</li>
+              <li>Boot</li>
+              <li>Export</li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-serif font-bold text-lg mb-4 uppercase tracking-wide">
-              Contact
+              Resources
             </h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>contact@solescript.com</span>
+                <span>dsl.solescript@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>Semantic rules SR1-SR9</span>
               </li>
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>New York, USA</span>
+                <span>ANTLR4 + Python parser stack</span>
               </li>
             </ul>
           </div>
@@ -87,14 +87,14 @@ export function Footer() {
       <div className="border-t-2 border-secondary-foreground/20 py-6">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-secondary-foreground/60">
-            © 2026 SoleScript. All rights reserved.
+            © 2026 SoleScript DSL. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
-              Privacy Policy
+            <Link href="https://github.com/Moisei-D/DSL-SoleScript" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
+              GitHub Repository
             </Link>
-            <Link href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
-              Terms & Conditions
+            <Link href="#about" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
+              Grammar Summary
             </Link>
           </div>
         </div>

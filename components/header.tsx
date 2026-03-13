@@ -18,20 +18,20 @@ export function Header() {
             Home
           </Link>
           <Link href="#configurator" className="text-secondary hover:text-primary transition-colors font-medium">
-            Configurator
+            DSL Playground
           </Link>
           <Link href="#about" className="text-secondary hover:text-primary transition-colors font-medium">
-            About Us
+            Grammar
           </Link>
           <Link href="#contact" className="text-secondary hover:text-primary transition-colors font-medium">
-            Contact
+            Resources
           </Link>
         </nav>
         <Link 
           href="#configurator" 
           className="bg-primary text-primary-foreground px-6 py-2 font-medium hover:bg-primary/90 transition-colors border-2 border-secondary"
         >
-          Get Started
+          Try SoleScript
         </Link>
       </div>
     </header>

@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { MeasurementForm, FootMeasurements } from "./measurement-form"
+import { MeasurementForm } from "./measurement-form"
 import { ShoePreview } from "./shoe-preview"
 import { MaterialsList } from "./materials-list"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Eye, Layers, FileText } from "lucide-react"
+import { FileCode2, ShieldCheck, FileText } from "lucide-react"
+import type { FootMeasurements } from "@/lib/solescript"
 
 export function ConfiguratorSection() {
   const [measurements, setMeasurements] = useState<FootMeasurements | null>(null)
@@ -28,11 +29,11 @@ export function ConfiguratorSection() {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Footwear Configurator
+            SoleScript DSL Playground
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Enter your foot measurements and instantly see how your personalized 
-            footwear will look along with all the materials needed for manufacturing.
+            Build a complete SoleScript program from structured inputs, inspect generated source,
+            and validate core semantic constraints in real time.
           </p>
         </div>
 
@@ -48,15 +49,15 @@ export function ConfiguratorSection() {
                   value="preview" 
                   className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3 border-r-2 border-secondary rounded-none"
                 >
-                  <Eye className="h-4 w-4 mr-2" />
-                  Preview
+                  <FileCode2 className="h-4 w-4 mr-2" />
+                  Program
                 </TabsTrigger>
                 <TabsTrigger 
                   value="materials"
                   className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3 border-r-2 border-secondary rounded-none"
                 >
-                  <Layers className="h-4 w-4 mr-2" />
-                  Materials
+                  <ShieldCheck className="h-4 w-4 mr-2" />
+                  Semantic Checks
                 </TabsTrigger>
                 <TabsTrigger 
                   value="summary"
@@ -77,9 +78,9 @@ export function ConfiguratorSection() {
                 ) : (
                   <div className="border-2 border-secondary bg-card p-8 min-h-[400px] flex items-center justify-center">
                     <div className="text-center">
-                      <Layers className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+                      <ShieldCheck className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                       <p className="text-muted-foreground">
-                        Complete the measurements to see the materials list
+                        Complete the form to validate semantic rules SR1-SR9
                       </p>
                     </div>
                   </div>
@@ -91,29 +92,29 @@ export function ConfiguratorSection() {
                   <div className="border-2 border-secondary bg-card">
                     <div className="border-b-2 border-secondary p-4">
                       <h3 className="text-lg font-serif font-bold text-secondary uppercase tracking-wide">
-                        Order Summary
+                        Program Summary
                       </h3>
                     </div>
                     <div className="p-6 space-y-6">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="border-2 border-secondary p-4">
-                          <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Length</p>
-                          <p className="text-2xl font-serif font-bold text-secondary">{measurements.footLength} mm</p>
+                          <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Boot</p>
+                          <p className="text-lg font-serif font-bold text-secondary">{measurements.bootName}</p>
                         </div>
                         <div className="border-2 border-secondary p-4">
-                          <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Width</p>
-                          <p className="text-2xl font-serif font-bold text-secondary">{measurements.footWidth} mm</p>
-                        </div>
-                        <div className="border-2 border-secondary p-4">
-                          <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Foot Type</p>
-                          <p className="text-lg font-medium text-secondary capitalize">
-                            {measurements.footType || "Not defined"}
-                          </p>
+                          <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Foot</p>
+                          <p className="text-lg font-serif font-bold text-secondary">{measurements.footName}</p>
                         </div>
                         <div className="border-2 border-secondary p-4">
                           <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Condition</p>
-                          <p className="text-lg font-medium text-secondary capitalize">
+                          <p className="text-lg font-medium text-secondary">
                             {measurements.condition || "Not defined"}
+                          </p>
+                        </div>
+                        <div className="border-2 border-secondary p-4">
+                          <p className="text-xs uppercase text-muted-foreground tracking-wide mb-1">Export Target</p>
+                          <p className="text-lg font-medium text-secondary">
+                            {measurements.bootName || "Not defined"}
                           </p>
                         </div>
                       </div>
@@ -124,9 +125,14 @@ export function ConfiguratorSection() {
                           <p className="text-secondary">{measurements.notes}</p>
                         </div>
                       )}
-                      
+
+                      <div className="border-2 border-secondary p-4 bg-muted/20">
+                        <p className="text-xs uppercase text-muted-foreground tracking-wide mb-2">Generated Export Line</p>
+                        <p className="font-mono text-primary">Export {measurements.bootName}</p>
+                      </div>
+
                       <button className="w-full bg-primary text-primary-foreground border-2 border-secondary py-4 font-medium hover:bg-primary/90 transition-colors">
-                        Request Custom Quote
+                        Rebuild Program
                       </button>
                     </div>
                   </div>
@@ -135,7 +141,7 @@ export function ConfiguratorSection() {
                     <div className="text-center">
                       <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                       <p className="text-muted-foreground">
-                        Complete the measurements to see the summary
+                        Complete the form to see declaration and export summary
                       </p>
                     </div>
                   </div>
