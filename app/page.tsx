@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { ConfiguratorSection } from "@/components/configurator-section"
+import { DslIdeSection } from "@/components/dsl-ide-section"
 import { AboutSection } from "@/components/about-section"
 import { Footer } from "@/components/footer"
 
@@ -10,7 +10,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <ConfiguratorSection />
+        <DslIdeSection />
         <AboutSection />
       </main>
       <Footer />

@@ -8,6 +8,67 @@ export type SoleScriptCondition =
   | "Square"
   | "Peasant"
 
+// ─── DSL plain-text parser ────────────────────────────────────────────────────
+// Extracts numeric measurements from a raw .sole program string so the 2D
+// pattern renderer can react to live edits in the code editor.
+
+export interface ParsedDslMeasurements {
+  bootName: string
+  footLength: number   // mm
+  ballGirth: number    // mm
+  footWidth: number    // mm
+  heelWidth: number    // mm
+  archHeight: number   // mm
+  heelHeight: number   // mm
+  toeSpring: number    // mm
+  widthFitting: number // mm
+  quarterVariant: string
+  components: string[]
+}
+
+function extractNum(source: string, key: string, fallback: number): number {
+  const re = new RegExp(`${key}\\s*:\\s*([\\d.]+)\\s*mm`, "i")
+  const m = source.match(re)
+  return m ? parseFloat(m[1]) : fallback
+}
+
+/** Parse a raw SoleScript source string into numeric measurements. */
+export function parseDslSource(source: string): ParsedDslMeasurements {
+  // boot name
+  const bootMatch = source.match(/Boot\s+(\w+)\s*\{/)
+  const bootName = bootMatch ? bootMatch[1] : "boot"
+
+  // quarter variant
+  const quarterMatch = source.match(/Quarter\s+(\w+)\s*\{/)
+  const quarterVariant = quarterMatch ? quarterMatch[1] : "1"
+
+  // components listed inside the Boot block
+  const bootBlockMatch = source.match(/Boot\s+\w+\s*\{([\s\S]*?)\n\}/)
+  const bootBody = bootBlockMatch ? bootBlockMatch[1] : ""
+  const componentRe = /^\s*(Outsole|Insole|Vamp|Tongue|Quarter\s*\d*|ToeBox|Heel|Shank|Counter|Lining)\s*\{/gm
+  const components: string[] = []
+  let cm: RegExpExecArray | null
+  while ((cm = componentRe.exec(bootBody)) !== null) {
+    components.push(cm[1].replace(/\s+/g, " ").trim())
+  }
+
+  return {
+    bootName,
+    footLength:   extractNum(source, "length",       265),
+    ballGirth:    extractNum(source, "ball_girth",   245),
+    footWidth:    extractNum(source, "width",         98),
+    heelWidth:    extractNum(source, "heel_width",    62),
+    archHeight:   extractNum(source, "arch_height",   18),
+    heelHeight:   extractNum(source, "heel_height",   22),
+    toeSpring:    extractNum(source, "toe_spring",    10),
+    widthFitting: extractNum(source, "width_fitting", 98),
+    quarterVariant,
+    components: components.length > 0
+      ? components
+      : ["Outsole","Insole","Vamp","Tongue","Quarter 1","ToeBox","Heel","Shank","Counter","Lining"],
+  }
+}
+
 export interface FootMeasurements {
   bootName: string
   footName: string

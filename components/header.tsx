@@ -17,8 +17,8 @@ export function Header() {
           <Link href="/" className="text-secondary hover:text-primary transition-colors font-medium">
             Home
           </Link>
-          <Link href="#configurator" className="text-secondary hover:text-primary transition-colors font-medium">
-            DSL Playground
+          <Link href="#dsl-ide" className="text-secondary hover:text-primary transition-colors font-medium">
+            Live Editor
           </Link>
           <Link href="#about" className="text-secondary hover:text-primary transition-colors font-medium">
             Grammar
@@ -28,7 +28,7 @@ export function Header() {
           </Link>
         </nav>
         <Link 
-          href="#configurator" 
+          href="#dsl-ide" 
           className="bg-primary text-primary-foreground px-6 py-2 font-medium hover:bg-primary/90 transition-colors border-2 border-secondary"
         >
           Try SoleScript
