@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react"
 import { PatternViewer } from "./pattern-viewer"
-import { parseDslSource, buildSoleScriptProgram } from "@/lib/solescript"
 import { FileCode2, RefreshCw } from "lucide-react"
 
 // ─── Default program ──────────────────────────────────────────────────────────
@@ -90,8 +89,6 @@ function CodeEditor({
 export function DslIdeSection() {
   const [code, setCode] = useState(DEFAULT_DSL)
 
-  const parsed = parseDslSource(code)
-
   const handleReset = useCallback(() => setCode(DEFAULT_DSL), [])
 
   return (
@@ -152,7 +149,7 @@ export function DslIdeSection() {
 
               {/* pattern view */}
               <div className="flex-1 overflow-auto bg-white">
-                <PatternViewer parsed={parsed} />
+                <PatternViewer source={code} />
               </div>
             </div>
 
