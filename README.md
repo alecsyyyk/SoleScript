@@ -1,35 +1,65 @@
-# SoleScript-l6
+# SoleScript
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+SoleScript is an interactive design environment for orthopedic boot modeling.
+It combines a domain-specific language (DSL) with a visual interface so you can
+write structured footwear definitions and immediately see how design changes
+affect generated boot component patterns.
 
-## Built with v0
+## What Is SoleScript?
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+SoleScript uses a clear declaration flow to describe a boot design:
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_OBQaf2hCwT4Daszp7BYcwN3RbnE6)
+- `Foot`: anatomical measurements (length, girth, width, heel, arch)
+- `Observations`: clinical context and pressure points
+- `Last`: shaping constraints and fit values
+- `Boot`: component composition (outsole, insole, vamp, tongue, quarter, etc.)
+- `Export`: final model target
+
+This structure helps keep design intent explicit, reproducible, and easy to
+review across clinical and technical teams.
+
+## What The UI Design Gives Us
+
+The UI is built to reduce friction between authoring and validation:
+
+- Live DSL editor: edit source directly in a line-numbered code pane
+- Instant visual feedback: 2D component patterns update as the DSL changes
+- Faster iteration: reset, tweak, and compare without leaving the page
+- Better clarity: structured layout separates source authoring and pattern output
+- Safety-oriented workflow: semantic rules and typed inputs support consistent
+	declarations and valid parameter ranges
+
+In short, the UI turns SoleScript from a static language definition into a
+practical design workflow for real-time orthopedic boot prototyping.
+
+## Main User Flow
+
+1. Start from the default SoleScript template.
+2. Edit measurements and component declarations.
+3. Inspect generated 2D patterns immediately.
+4. Refine values until the output matches fit and support goals.
+
+## Tech Stack
+
+- Next.js + TypeScript
+- Tailwind CSS
+- Component-based UI architecture
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies, then run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you use npm or yarn, the equivalent commands work as well.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000 in your browser.
 
-## Learn More
+## v0 Project Link
 
-To learn more, take a look at the following resources:
+This repo is connected to v0:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
-
-<a href="https://v0.app/chat/api/kiro/clone/alecsyyyk/SoleScript-l6" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+https://v0.app/chat/projects/prj_OBQaf2hCwT4Daszp7BYcwN3RbnE6
