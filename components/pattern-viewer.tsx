@@ -85,15 +85,9 @@ export function PatternViewer({ source }: PatternViewerProps) {
       )}
 
       {svg ? (
-        <div
-          style={{
-            transform: `scale(${zoom})`,
-            transformOrigin: "top left",
-            width: `${100 / zoom}%`,
-          }}
-        >
+        <div className="inline-block" style={{ transform: `scale(${zoom})`, transformOrigin: "top left" }}>
           <div
-            className="w-full [&>svg]:w-full [&>svg]:h-auto"
+            className="[&>svg]:h-auto [&>svg]:max-w-none"
             dangerouslySetInnerHTML={{ __html: svg }}
           />
         </div>
